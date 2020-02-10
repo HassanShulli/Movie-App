@@ -5,14 +5,19 @@
       <mat-card class="card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{row.row_name}}</mat-card-title>
+          <mat-card-title>
+            {{ (row.row_name.length > 20)? (row.row_name | slice:0:18)+'..':(row.row_name) }}
+          </mat-card-title>
           <!--<mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
         </mat-card-header>
 
-        <div style="display: flex;flex-wrap: nowrap;overflow-x: auto;overflow-y: hidden; height: 300px;width: 300px;">
-          <div *ngFor="let movie of row.data" style="display: inline-block;width: 300px;">
+        <div
+          style="display: flex;flex-wrap: nowrap;overflow-x: auto;overflow-y: hidden;
+          scroll-direction: horizontal;height: 300px;width: 230px;">
+          <div *ngFor="let movie of row.data" style="display: inline-block;width: 200px;">
 
-            <div style="display: inline-block;">Movie Title : {{movie.title}}</div>
+            <!--<div style="display: inline-block;height: 40px;">Movie Title : {{movie.title}}</div>-->
+            <mat-card-subtitle style="text-align: center;color: black;">{{movie.title}}</mat-card-subtitle>
             <!--<div style="display: flex;flex-wrap: wrap;height: 300px;">-->
             <div *ngFor="let image of movie.images">
               <!--;width: 210px;height: 260px-->
