@@ -8,10 +8,11 @@
 /*}*/
 
 .movie-list-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+  /*display: flex;*/
+  /*flex-wrap: wrap;*/
+  /*width: 100%;*/
   overflow: auto;
+  text-align: center;
 }
 
 .movie-list {
@@ -21,7 +22,29 @@
 }
 
 .card {
-  width: 260px;
-  height: 510px;
-  padding-bottom: 0;
+  display: inline-block;
+  width: 380px;
+  height: 340px;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.pagination-buttons {
+  color: #259FD9;
+  width: 112px;
+  border: solid 1px #259FD9;
+  border-radius: 25px;
 }

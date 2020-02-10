@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../services/data.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-movie-details',
@@ -8,12 +9,26 @@ import {DataService} from '../services/data.service';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  constructor(private dataService: DataService) {
+  sentId: any;
+  movieDetails: any;
+
+  constructor(private dataService: DataService,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
+    this.checkParams();
     console.log('MOVIE DETAILS');
-    this.getMovieDetails('e6464ce6-42c9-43ae-be23-0dd57f50add1');
+    // this.getMovieDetails('e6464ce6-42c9-43ae-be23-0dd57f50add1');
+  }
+
+  checkParams() {
+    console.log('this.route.snapshot.queryParams : ', this.route.snapshot.queryParams);
+    this.sentId = this.route.snapshot.queryParams['id'];
+    if (this.sentId) {
+      this.getMovieDetails(this.sentId);
+    }
   }
 
 
@@ -22,6 +37,7 @@ export class MovieDetailsComponent implements OnInit {
       .subscribe(response => {
         if (response) {
           console.log('movie details : response : ', response);
+          this.movieDetails = response.data;
         }
       });
   }

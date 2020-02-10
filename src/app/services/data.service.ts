@@ -21,8 +21,8 @@ export class DataService {
   }
 
   // Movies List
-  getMovies(): Observable<any> {
-    return this.http.get('https://cdn-discover.hooq.tv/v1.2/discover/feed?region=ID&page=1&perPage=20')
+  getMovies(pageIndex, itemsPerPage): Observable<any> {
+    return this.http.get(`https://cdn-discover.hooq.tv/v1.2/discover/feed?region=ID&page=${pageIndex}&perPage=${itemsPerPage}`)
       .pipe(
         tap(result => {
         }),
