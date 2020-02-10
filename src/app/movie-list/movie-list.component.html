@@ -8,18 +8,37 @@
           <mat-card-title>{{row.row_name}}</mat-card-title>
           <!--<mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
         </mat-card-header>
-        <div *ngFor="let movie of row.data">
-          <ul class="flex-container row">
-            <li class="flex-item">1</li>
-            <li class="flex-item">2</li>
-            <li class="flex-item">3</li>
-            <li class="flex-item">4</li>
-            <li class="flex-item">5</li>
-          </ul>
 
+        <div style="display: flex;flex-wrap: nowrap;overflow-x: auto;overflow-y: hidden; height: 300px;width: 300px;">
+          <div *ngFor="let movie of row.data" style="display: inline-block;width: 300px;">
+
+            <div style="display: inline-block;">Movie Title : {{movie.title}}</div>
+            <!--<div style="display: flex;flex-wrap: wrap;height: 300px;">-->
+            <div *ngFor="let image of movie.images">
+              <!--;width: 210px;height: 260px-->
+              <div style="display: inline-block;height: 300px;width: 210px;" *ngIf="image.type === 'POSTER'">
+                <img mat-card-image
+                     src="{{image.url}}"
+                     height="200" width="200"
+                     style="object-fit: contain;padding: 5px;"
+                     alt="Photo of a Shiba Inu">
+              </div>
+
+
+              <!--</div>-->
+            </div>
+          </div>
 
         </div>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+
+        <!--<ul class="flex-container row">-->
+        <!--<li class="flex-item">{{movie.title}}</li>-->
+        <!--<li class="flex-item">2</li>-->
+        <!--<li class="flex-item">3</li>-->
+        <!--<li class="flex-item">4</li>-->
+        <!--<li class="flex-item">5</li>-->
+        <!--</ul>-->
+
         <mat-card-content>
           <p>
             The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
