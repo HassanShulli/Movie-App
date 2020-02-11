@@ -1,3 +1,13 @@
-.separator {
-  height: 64px;
+.movie-title {
+  text-align: center;
+  height: 40px;
+  line-height: 3;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.main-container {
+  overflow: auto;
+  text-align: center;
+  height: 84vh;
 }

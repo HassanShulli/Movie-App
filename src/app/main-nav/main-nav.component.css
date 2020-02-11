@@ -31,3 +31,7 @@
 .index {
   z-index: 2;
 }
+
+.content {
+  margin-top: 56px;
+}

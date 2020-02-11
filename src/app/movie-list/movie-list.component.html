@@ -1,16 +1,15 @@
-<div class="separator"></div>
 <div class="main-container">
   <div class="movie-list-container">
     <div class="movie-list" *ngFor="let row of movieList">
       <mat-card class="card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>
+          <mat-card-title style="width: 280px;">
             {{ (row.row_name.length > 20)? (row.row_name | slice:0:18)+'..':(row.row_name) }}
           </mat-card-title>
           <!--<mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
         </mat-card-header>
-<!--width: 230px;-->
+        <!--width: 230px;-->
         <div style="display: flex;flex-wrap: nowrap;overflow-x: auto;overflow-y: hidden; height: 300px;">
           <div *ngFor="let movie of row.data" style="display: inline-block;width: 180px;">
 
@@ -21,7 +20,7 @@
                        src="{{image.url}}"
                        height="240" width="200"
                        style="object-fit: contain;padding: 5px;"
-                       alt="Photo of a Shiba Inu">
+                       alt="{{image.title}}">
                 </div>
                 <div style="text-align: center;color: black;display: inline-block;width: 210px;">
                   {{ (movie.title.length > 18 ? (movie.title | slice:0:16)+ '...':(movie.title))}}

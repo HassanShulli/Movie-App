@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class MovieDetailsComponent implements OnInit {
 
   sentId: any;
+  description: any;
   movieDetails: any;
 
   constructor(private dataService: DataService,
@@ -38,8 +39,17 @@ export class MovieDetailsComponent implements OnInit {
         if (response) {
           console.log('movie details : response : ', response);
           this.movieDetails = response.data;
+          this.description = this.movieDetails.short_description;
         }
       });
+  }
+
+  toggleDescription(toggle) {
+    if (toggle === 'more') {
+      this.description = this.movieDetails.description;
+    } else if (toggle === 'less') {
+      this.description = this.movieDetails.short_description;
+    }
   }
 
 }
