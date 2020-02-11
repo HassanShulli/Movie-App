@@ -5,44 +5,44 @@
 
   <div *ngFor="let image of movieDetails?.images">
     <div *ngIf="image.type === 'BACKGROUND'">
-      <div style="height: 260px;text-align: center;padding: 5px;margin-top: 10px;">
-        <img mat-card-image
+      <div class="image-container">
+        <img mat-card-image class="image"
              height="250" width="390"
              src="{{image.url}}"
-             style="object-fit: contain;padding: 5px;"
              alt="{{movieDetails.title}}">
       </div>
     </div>
 
   </div>
   <div>
-    <div style="width: 50%;min-width: 120px;display: inline-block;text-align: center">
+    <div class="download-stream">
       <strong>Downloadable: </strong>
-      <p style="display: inline-block">
+      <p class="display">
 
-        <mat-icon style="vertical-align: sub;" *ngIf="movieDetails?.downloadable">done</mat-icon>
-        <mat-icon style="vertical-align: sub;" *ngIf="!movieDetails?.downloadable">close</mat-icon>
+        <mat-icon class="icon" *ngIf="movieDetails?.downloadable">done</mat-icon>
+        <mat-icon class="icon" *ngIf="!movieDetails?.downloadable">close</mat-icon>
       </p>
     </div>
-    <div style="width: 50%;min-width: 120px;display: inline-block;text-align: center">
+    <div class="download-stream">
       <strong>Streamable: </strong>
-      <p style="display: inline-block">
-        <mat-icon style="vertical-align: sub;" *ngIf="movieDetails?.streamable">done</mat-icon>
-        <mat-icon style="vertical-align: sub;" *ngIf="!movieDetails?.streamable">close</mat-icon>
+      <p class="display">
+        <mat-icon class="icon" *ngIf="movieDetails?.streamable">done</mat-icon>
+        <mat-icon class="icon" *ngIf="!movieDetails?.streamable">close</mat-icon>
       </p>
     </div>
   </div>
 
-  <div style="min-width: 150px;text-align: left">
-    <p class="left-align"><strong>Description: </strong>{{movieDetails?.running_time / (60*1000*60) |
-      date:'HH:mm:ss'}}</p>
+  <div class="padding">
+    <div class="inner-div">
+      <p class="left-align"><strong>Time: {{runningHours}} {{hour}} - {{runningMinutes}} {{minute}}</strong></p>
+    </div>
   </div>
 
-  <div style="padding: 5px 30px">
-    <div style="width: 100%;min-width: 150px;display: inline-block;text-align: left">
+  <div class="padding">
+    <div class="inner-div">
       <p class="left-align"><strong>Genres: </strong></p>
     </div>
-    <div style="width: 80%;min-width: 150px;display: inline-block;text-align: justify;">
+    <div class="tags-container">
       <p class="left-align">
         <label *ngFor="let tag of movieDetails?.tags;let i = index" [attr.data-index]="i">
           {{tag.label}}
@@ -52,11 +52,11 @@
     </div>
   </div>
 
-  <div style="padding: 5px 30px">
-    <div style="width: 100%;min-width: 150px;display: inline-block;text-align: left">
+  <div class="padding">
+    <div class="inner-div">
       <p class="left-align"><strong>Languages: </strong></p>
     </div>
-    <div style="width: 80%;min-width: 150px;display: inline-block;text-align: justify;">
+    <div class="tags-container">
       <p class="left-align">
         <label *ngFor="let lang of movieDetails?.languages;let i = index" [attr.data-index]="i">
           {{lang}}
@@ -66,11 +66,11 @@
     </div>
   </div>
 
-  <div style="padding: 5px 30px">
-    <div style="width: 100%;min-width: 150px;display: inline-block;text-align: left">
+  <div class="padding">
+    <div class="inner-div">
       <p class="left-align"><strong>Description: </strong></p>
     </div>
-    <div style="width: 80%;min-width: 150px;height: 250px;overflow-y: auto;display: inline-block;text-align: justify;">
+    <div class="description-div">
       <p class="left-align">
         {{description}}
       </p>

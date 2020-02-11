@@ -1,6 +1,6 @@
 .movie-title {
   text-align: center;
-  height: 40px;
+  height: 60px;
   line-height: 3;
   font-size: 24px;
   font-weight: bold;
@@ -11,4 +11,59 @@
   overflow-x: hidden;
   text-align: center;
   height: 90vh;
+}
+
+.image-container {
+  height: 260px;
+  text-align: center;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.image {
+  object-fit: contain;
+  padding: 5px;
+}
+
+.icon {
+  vertical-align: sub;
+}
+
+.download-stream {
+  width: 50%;
+  min-width: 120px;
+  display: inline-block;
+  text-align: center
+}
+
+.inner-div {
+  width: 100%;
+  min-width: 150px;
+  display: inline-block;
+  text-align: left
+}
+
+.description-div {
+  width: 80%;
+  min-width: 150px;
+  height: 250px;
+  padding: 20px;
+  overflow-y: auto;
+  display: inline-block;
+  text-align: justify;
+}
+
+.padding {
+  padding: 5px 30px;
+}
+
+.tags-container {
+  width: 80%;
+  min-width: 150px;
+  display: inline-block;
+  text-align: justify;
+}
+
+.display {
+  display: inline-block;
 }

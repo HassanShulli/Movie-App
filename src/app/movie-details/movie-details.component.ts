@@ -12,6 +12,11 @@ export class MovieDetailsComponent implements OnInit {
   sentId: any;
   description: any;
   movieDetails: any;
+  runningTime: any;
+  runningHours: any;
+  runningMinutes: any;
+  hour: any;
+  minute: any;
 
   constructor(private dataService: DataService,
               private route: ActivatedRoute,
@@ -40,6 +45,12 @@ export class MovieDetailsComponent implements OnInit {
           console.log('movie details : response : ', response);
           this.movieDetails = response.data;
           this.description = this.movieDetails.short_description;
+          this.runningTime = this.movieDetails.running_time / (60 * 1000 * 60);
+          this.runningHours = Math.floor(this.runningTime);
+          this.runningMinutes = Math.floor((this.runningTime - Math.floor(this.runningTime)) * 60);
+          this.hour = this.runningHours > 1 ? 'hours' : 'hour';
+          this.minute = this.runningMinutes > 1 ? 'minutes' : 'minute';
+          console.log('this.runningTime : ', this.runningTime);
         }
       });
   }

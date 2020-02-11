@@ -1,73 +1,43 @@
 <div class="main-container">
   <div class="movie-list-container">
+    <!--Rows-->
     <div class="movie-list" *ngFor="let row of movieList">
       <mat-card class="card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title style="width: 280px;">
+          <mat-card-title class="card-title">
             {{ (row.row_name.length > 20)? (row.row_name | slice:0:18)+'..':(row.row_name) }}
           </mat-card-title>
-          <!--<mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
         </mat-card-header>
-        <!--width: 230px;-->
-        <div style="display: flex;flex-wrap: nowrap;overflow-x: auto;overflow-y: hidden; height: 300px;">
-          <div *ngFor="let movie of row.data" style="display: inline-block;width: 180px;">
-
+        <!--Movies-->
+        <div class="row-container">
+          <div *ngFor="let movie of row.data" class="movie-container">
             <div *ngFor="let image of movie.images">
+              <!--Display Poster Image only-->
               <div *ngIf="image.type === 'POSTER'">
-                <div style="display: inline-block;height: 250px;width: 210px;">
+                <div class="image-container">
                   <img mat-card-image (click)="navigateToMovieDetails(movie.id)"
-                       src="{{image.url}}"
+                       src="{{image.url}}" class="image"
                        height="240" width="200"
-                       style="object-fit: contain;padding: 5px;"
                        alt="{{image.title}}">
                 </div>
-                <div style="text-align: center;color: black;display: inline-block;width: 210px;">
+                <div class="movie-title">
                   {{ (movie.title.length > 18 ? (movie.title | slice:0:16)+ '...':(movie.title))}}
                 </div>
               </div>
-
-
             </div>
           </div>
-
         </div>
-
-        <!--<ul class="flex-container row">-->
-        <!--<li class="flex-item">{{movie.title}}</li>-->
-        <!--<li class="flex-item">2</li>-->
-        <!--<li class="flex-item">3</li>-->
-        <!--<li class="flex-item">4</li>-->
-        <!--<li class="flex-item">5</li>-->
-        <!--</ul>-->
-
-        <!--<mat-card-content>-->
-        <!--<p>-->
-        <!--The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
-        <!--A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
-        <!--bred for hunting.-->
-        <!--</p>-->
-        <!--</mat-card-content>-->
-        <!--<mat-card-actions>-->
-        <!--<button mat-button class="pagination-buttons align-left" (click)="previousPage()">-->
-        <!--<mat-icon>arrow_left</mat-icon>-->
-        <!--previous-->
-        <!--</button>-->
-        <!--<button mat-button class="pagination-buttons align-right" (click)="nextPage()">-->
-        <!--Next-->
-        <!--<mat-icon>arrow_right</mat-icon>-->
-        <!--</button>-->
-        <!--</mat-card-actions>-->
       </mat-card>
     </div>
   </div>
-  <div style="text-align: center;padding: 10px;">
-    <div class="paginator-container">
-      <app-paginator style="margin: 20px auto 0" [index]="paginator.index"
+  <!--Pagination-->
+  <div class="pagination-container-outer">
+    <div class="pagination-container-inner">
+      <app-paginator class="pagination" [index]="paginator.index"
                      [total]="paginator.total" [limit]="paginator.limit" [pagesToShow]="paginator.pagesToShow"
-                     (prevPage)="onPrevMediaPage($event)" (nextPage)="onNextMediaPage($event)"
-                     (pageSelect)="onMediaPageSelect($event)"></app-paginator>
+                     (prevPage)="onPrevMoviePage($event)" (nextPage)="onNextMoviePage($event)"
+                     (pageSelect)="onMoviePageSelect($event)"></app-paginator>
     </div>
   </div>
-
 </div>
