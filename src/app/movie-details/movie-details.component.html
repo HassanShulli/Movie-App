@@ -5,7 +5,7 @@
 
   <div *ngFor="let image of movieDetails?.images">
     <div *ngIf="image.type === 'BACKGROUND'">
-      <div style="height: 260px;text-align: center;padding: 5px">
+      <div style="height: 260px;text-align: center;padding: 5px;margin-top: 10px;">
         <img mat-card-image
              height="250" width="390"
              src="{{image.url}}"
