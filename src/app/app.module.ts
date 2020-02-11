@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { PaginatorComponent} from './paginator/paginator.component';
 import {AppRoutingModule} from './app-routing.module';
 import {DataService} from './services/data.service';
 import {HttpClientModule} from '@angular/common/http';
@@ -37,7 +37,8 @@ import { HomeComponent } from './home/home.component';
     MovieListComponent,
     MovieDetailsComponent,
     MainNavComponent,
-    HomeComponent
+    HomeComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,

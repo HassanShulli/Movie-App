@@ -33,22 +33,9 @@
     </div>
   </div>
 
-  <div style="padding: 5px 30px">
-    <div style="width: 100%;min-width: 150px;display: inline-block;text-align: left">
-      <p class="left-align"><strong>Description: </strong>{{movieDetails?.running_time/60/1000/60 | number:'1.1-2'}}
-        hours</p>
-    </div>
-    <div style="width: 80%;min-width: 150px;display: inline-block;text-align: justify;">
-      <p class="left-align">
-        {{description}}
-      </p>
-      <p>
-        <label (click)="toggleDescription('more')" *ngIf="description === movieDetails?.short_description"><strong>&nbsp;See
-          more</strong></label>
-        <label (click)="toggleDescription('less')" *ngIf="description === movieDetails?.description"><strong>&nbsp;See
-          less</strong></label>
-      </p>
-    </div>
+  <div style="min-width: 150px;text-align: left">
+    <p class="left-align"><strong>Description: </strong>{{movieDetails?.running_time / (60*1000*60) |
+      date:'HH:mm:ss'}}</p>
   </div>
 
   <div style="padding: 5px 30px">
@@ -61,6 +48,37 @@
           {{tag.label}}
           <label *ngIf="i < movieDetails.tags.length - 1">&nbsp;,</label>
         </label>
+      </p>
+    </div>
+  </div>
+
+  <div style="padding: 5px 30px">
+    <div style="width: 100%;min-width: 150px;display: inline-block;text-align: left">
+      <p class="left-align"><strong>Languages: </strong></p>
+    </div>
+    <div style="width: 80%;min-width: 150px;display: inline-block;text-align: justify;">
+      <p class="left-align">
+        <label *ngFor="let lang of movieDetails?.languages;let i = index" [attr.data-index]="i">
+          {{lang}}
+          <label *ngIf="i < movieDetails.languages.length - 1">&nbsp;,</label>
+        </label>
+      </p>
+    </div>
+  </div>
+
+  <div style="padding: 5px 30px">
+    <div style="width: 100%;min-width: 150px;display: inline-block;text-align: left">
+      <p class="left-align"><strong>Description: </strong></p>
+    </div>
+    <div style="width: 80%;min-width: 150px;height: 250px;overflow-y: auto;display: inline-block;text-align: justify;">
+      <p class="left-align">
+        {{description}}
+      </p>
+      <p>
+        <label (click)="toggleDescription('more')" *ngIf="description === movieDetails?.short_description"><strong>&nbsp;See
+          more</strong></label>
+        <label (click)="toggleDescription('less')" *ngIf="description === movieDetails?.description"><strong>&nbsp;See
+          less</strong></label>
       </p>
     </div>
   </div>

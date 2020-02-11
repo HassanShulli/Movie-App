@@ -18,23 +18,31 @@ export class MovieListComponent implements OnInit {
   pageIndex: number;
   total: number;
 
+  paginator = {
+    index: 1,
+    total: 10,
+    limit: 10,
+    pagesToShow: 2
+  };
+
   ngOnInit() {
     console.log('MOVIE DETAILS');
     this.itemsPerPage = 10;
-    this.pageIndex = 1;
+    this.pageIndex = 0;
     this.total = 0;
     this.getMovieList();
   }
 
   getMovieList() {
-    this.dataService.getMovies(this.pageIndex, this.itemsPerPage)
+    this.dataService.getMovies(this.paginator.index + 1, this.paginator.limit)
       .subscribe(response => {
         if (response) {
           console.log('response : ', response);
           console.log('response.pagination : ', response.pagination);
           console.log('response.pagination.totalPages : ', response.pagination.totalPages);
           // console.log('response : ', response);
-          this.total = response.pagination.totalPages;
+          this.paginator.total = response.pagination.totalCount;
+          this.paginator.pagesToShow = response.pagination.totalPages;
           this.movieList = response.data.filter((item) => {
             return item.type === 'Multi-Title-Manual-Curation';
           });
@@ -43,16 +51,28 @@ export class MovieListComponent implements OnInit {
       });
   }
 
-  previousPage() {
-    if (this.pageIndex > 0) {
-      this.pageIndex--;
+  // paginator functions
+
+  onPrevMediaPage($event) {
+    if ($event) {
+      this.paginator.index--;
       this.getMovieList();
     }
   }
 
-  nextPage() {
-    if (this.pageIndex < this.total) {
-      this.pageIndex++;
+  onNextMediaPage($event) {
+    if ($event) {
+      this.paginator.index++;
+      this.getMovieList();
+    }
+  }
+
+  onMediaPageSelect($event) {
+    if (this.paginator.index !== $event) {
+      this.paginator.index = $event;
+      // if (this.paginator.index < 1) {
+      //   this.paginator.index = 1;
+      // }
       this.getMovieList();
     }
   }

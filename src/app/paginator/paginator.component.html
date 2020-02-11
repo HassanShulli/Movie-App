@@ -1,0 +1,18 @@
+<div class="paginator" [ngClass]="{disabled: getPages().length <= 1}">
+  <button mat-button class="paginator-button" style="margin-right: 11px" (click)="onPrevClick()"
+          [disabled]="index === 0">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    <span>Prev</span>
+  </button>
+  <div class="page-number-list">
+    <button mat-button class="page-number" *ngFor="let page of getPages()" id="{{page}}" (click)="onPageClick(page)"
+            [ngClass]="{'selected': page === index}">
+      {{page + 1}}
+    </button>
+  </div>
+  <button mat-button class="paginator-button" style="margin-left: 10px" (click)="onNextClick()"
+          [disabled]="isLastPage()">
+    <span>Next</span>
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>

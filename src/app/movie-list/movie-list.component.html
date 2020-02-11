@@ -61,4 +61,13 @@
       </mat-card>
     </div>
   </div>
+  <div style="text-align: center;padding: 10px;">
+    <div class="paginator-container">
+      <app-paginator style="margin: 20px auto 0" [index]="paginator.index"
+                     [total]="paginator.total" [limit]="paginator.limit" [pagesToShow]="paginator.pagesToShow"
+                     (prevPage)="onPrevMediaPage($event)" (nextPage)="onNextMediaPage($event)"
+                     (pageSelect)="onMediaPageSelect($event)"></app-paginator>
+    </div>
+  </div>
+
 </div>

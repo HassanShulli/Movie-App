@@ -20,7 +20,8 @@
 
 .card {
   display: inline-block;
-  width: 380px;
+  min-width: 380px;
+  width: 90%;
   height: 340px;
   padding-bottom: 0 !important;
   padding-left: 0 !important;
@@ -44,4 +45,9 @@
   width: 112px;
   border: solid 1px #259FD9;
   border-radius: 25px;
+}
+
+.paginator-container {
+  width: 400px;
+  display: inline-block;
 }
