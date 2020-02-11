@@ -37,6 +37,9 @@ export class MovieDetailsComponent implements OnInit {
     }
   }
 
+  back() {
+    this.router.navigate(['/movie-list']);
+  }
 
   getMovieDetails(id) {
     this.dataService.getMovieDetails(id)

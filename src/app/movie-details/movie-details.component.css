@@ -1,3 +1,14 @@
+.back {
+  color: #259FD9;
+  border: 1px #259FD9 solid;
+  border-radius: 50px;
+}
+
+.button-container {
+  padding: 10px;
+  text-align: left;
+}
+
 .movie-title {
   text-align: center;
   height: 60px;
