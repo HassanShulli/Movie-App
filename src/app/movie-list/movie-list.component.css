@@ -1,7 +1,7 @@
 .movie-list-container {
   overflow: auto;
   text-align: center;
-  height: 86vh;
+  height: 80vh;
 }
 
 .movie-list {
