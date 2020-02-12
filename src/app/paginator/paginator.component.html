@@ -1,5 +1,5 @@
 <div class="paginator" [ngClass]="{disabled: getPages().length <= 1}">
-  <button mat-button class="paginator-button" style="margin-right: 11px" (click)="onPrevClick()"
+  <button mat-button class="paginator-button button" style="margin-right: 11px" (click)="onPrevClick()"
           [disabled]="index === 0">
     <mat-icon>keyboard_arrow_left</mat-icon>
     <span>Prev</span>
@@ -10,7 +10,7 @@
       {{page + 1}}
     </button>
   </div>
-  <button mat-button class="paginator-button" style="margin-left: 10px" (click)="onNextClick()"
+  <button mat-button class="paginator-button button" style="margin-left: 10px" (click)="onNextClick()"
           [disabled]="isLastPage()">
     <span>Next</span>
     <mat-icon>keyboard_arrow_right</mat-icon>

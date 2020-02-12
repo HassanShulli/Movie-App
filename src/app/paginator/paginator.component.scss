@@ -1,6 +1,11 @@
 $main-theme: #259FD9;
 $main-text: #2F3139;
 
+.button {
+  background: #ffffff;
+  color: $main-theme;
+}
+
 // to be extended
 .flex-center-just {
   display: flex;
